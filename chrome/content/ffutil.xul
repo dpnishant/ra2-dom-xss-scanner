@@ -1,0 +1,74 @@
+<!-- 
+
+	Ra.2 - Blackbox DOM-based XSS Scanner is our approach towards finding a solution to the problem of detecting DOM-based Cross-Site Scripting vulnerabilities in Web-Application automatically, effectively and fast. Ra.2 is basically a lighweight Mozilla Firefox Add-on that uses a very simple yet effective and unique approach to detect most DOM-based XSS vulnerabilities, if not all. Being a browser-add on it is a session-aware tool which can scan a web-application that requires authentication. Ra.2 uses custom collected list of XSS vectors which has been heavily modified to be compatible with its scanning technology. The add-on also implements basic browser intrumentation to simulate a human interaction to trigger some hard to detect DOM-based XSS conditions.
+    Copyright (C) 2012  Nishant Das Patnaik & Sarathi Sabyasachi Sahoo
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+-->
+
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://ffutil/skin/skin.css" type="text/css"?>
+
+<overlay id="ra2-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script type="application/x-javascript"  src="chrome://ffutil/content/ra.two.js" />
+
+<menupopup id="contentAreaContextMenu">
+	<menu id="Ra.Two" label="Ra.2 Scanner">
+		<menupopup>
+			<menuitem label="Scan this page" oncommand="scanThisPage()"  />			
+	        <menuitem label="Scan from file" oncommand="scanAllPages()"  />
+			<menuseparator />
+			<menuitem label="Settings" oncommand="openSettings();"/>
+		</menupopup>
+	</menu>           
+</menupopup>
+  
+<toolbox id="nav-bar">
+	
+	<hbox style="padding:10px">
+	
+		<vbox align="center">
+			<progressmeter id="RaTwo-PM" value="0"/>
+			<label id="RaTwo-Per" value=""/>
+		</vbox>
+	
+	</hbox>
+	
+	<toolbarbutton id="ra-two" image="chrome://ffutil/content/s.png" tooltiptext="Ra.2" type="menu-button">
+	
+		<menupopup>
+			<menuitem label="Scan this URL" oncommand="scanThisPage()"/>
+			<menuitem label="Scan from file" oncommand="scanAllPages()"/>
+			<menuseparator />
+			<menuitem label="Settings" oncommand="openSettings();"/>
+		</menupopup>
+		
+	</toolbarbutton>
+	
+</toolbox>
+  
+<toolbox id="navigator-toolbox">
+
+	<toolbar id="ra2-toolbar" toolbarname="ra2-toolbar" accesskey="T" class="chromeclass-toolbar" context="toolbar-context-menu" hidden="false" persist="hidden">
+	
+		<toolbaritem flex="0"><toolbarseparator /></toolbaritem>
+		<toolbarspring />
+	</toolbar>
+	
+</toolbox>
+
+</overlay>

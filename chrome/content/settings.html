@@ -1,0 +1,175 @@
+<!-- 
+
+	Ra.2 - Blackbox DOM-based XSS Scanner is our approach towards finding a solution to the problem of detecting DOM-based Cross-Site Scripting vulnerabilities in Web-Application automatically, effectively and fast. Ra.2 is basically a lighweight Mozilla Firefox Add-on that uses a very simple yet effective and unique approach to detect most DOM-based XSS vulnerabilities, if not all. Being a browser-add on it is a session-aware tool which can scan a web-application that requires authentication. Ra.2 uses custom collected list of XSS vectors which has been heavily modified to be compatible with its scanning technology. The add-on also implements basic browser intrumentation to simulate a human interaction to trigger some hard to detect DOM-based XSS conditions.
+    Copyright (C) 2012  Nishant Das Patnaik & Sarathi Sabyasachi Sahoo
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+-->
+
+<html>
+<head>
+<title>Ra.2 - DOM XSS Scanner</title>
+<style rel="stylesheet">
+		fieldset{width:700px;text-align:left;}
+		li{color: #00CCFF; font-family: 'DesignationRegular'; font-size: 12px}
+		legend{color: #CC33FF; font-family: 'DesignationRegular'; font-size: 15px}
+		@font-face {
+		font-family: 'DesignationRegular';
+		src: url('designation-webfont.eot');
+		src: local('?'), url('designation-webfont.woff') format('woff'), url('designation-webfont.ttf') format('truetype'), url('designation-webfont.svg#webfont2gQKTcGt') format('svg');
+		font-weight: normal;
+		font-style: normal;
+		}
+
+</style>
+<script>
+Components.utils.import("resource://gre/modules/AddonManager.jsm");
+var settingFilePath="";
+AddonManager.getAddonByID("ra2@domxssscanner.app", function(addon) {
+try
+{
+  var addonLocation = addon.getResourceURI("").QueryInterface(Components.interfaces.nsIFileURL).file.path;
+  settingFilePath=addonLocation+"\\chrome\\content\\settings.txt";
+  setValues();
+}
+catch(e2)
+{
+}  
+});	
+function savedata(){
+try
+{
+var dbip=document.getElementById('dbip').value;
+var dbpwd=document.getElementById('dbpwd').value;
+var dbusername=document.getElementById('dbusername').value;
+var chkbox1=0;
+var chkbox2=0;
+if(document.getElementById('chkbox1').checked){
+chkbox1=1;
+}
+if(document.getElementById('chkbox2').checked){
+chkbox2=1;
+}
+var file1=document.getElementById('file1').value;
+var datastr="dbip="+dbip+"&dbpwd="+dbpwd+"&dbusername="+dbusername+"&chkbox1="+chkbox1+"&chkbox2="+chkbox2+"&file1="+file1;
+		   
+
+var file4 = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+var foStream4 = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
+file4.initWithPath(settingFilePath);
+
+foStream4.init(file4, 0x02 | 0x08 | 0x20, 0666, 0);
+foStream4.write(datastr, datastr.length);
+foStream4.close();
+
+var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+file.initWithPath(file1);
+
+var is = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance( Components.interfaces.nsIFileInputStream );
+is.init( file,0x01, 00004, null);
+var sis = Components.classes["@mozilla.org/scriptableinputstream;1"].createInstance( Components.interfaces.nsIScriptableInputStream );
+sis.init( is );
+var output = sis.read( sis.available() );
+
+var filePath = "C:\\xss\\config.txt";
+
+var file2 = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+var foStream2 = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
+file2.initWithPath(filePath);
+
+foStream2.init(file2, 0x02 | 0x08 | 0x20, 0666, 0);
+foStream2.write(output, output.length);
+foStream2.close();
+self.close();
+}
+catch(err)
+{
+self.close();
+}
+return true;
+}
+
+function setValues()
+{
+try
+{
+var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+file.initWithPath(settingFilePath);
+
+var is = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance( Components.interfaces.nsIFileInputStream );
+is.init( file,0x01, 00004, null);
+var sis = Components.classes["@mozilla.org/scriptableinputstream;1"].createInstance( Components.interfaces.nsIScriptableInputStream );
+sis.init( is );
+var output = sis.read( sis.available() );
+
+if(output.indexOf("chkbox1=0")!=-1)
+document.getElementById('chkbox1').checked=false;
+else
+document.getElementById('chkbox1').checked=true;
+
+if(output.indexOf("chkbox2=0")!=-1)
+document.getElementById('chkbox2').checked=false;
+else
+document.getElementById('chkbox2').checked=true;
+
+}
+catch(err)
+{
+}
+
+}
+
+</script></head>
+
+<body>
+
+<center><form method="post" enctype="multiple/form-data">
+
+<table><tbody><tr style="">
+<td style="float: left; width: 100px; height: 50px;"><img style="height: 100%; width: 100%; margin-right: 10px;" src="logo.png"></td>
+<td style="float: left; vertical-align: middle; color: rgb(85, 85, 85); font-size: 30px; font-family: 'DesignationRegular',Tahoma,sans-serif; font-weight: 400; letter-spacing: -1px; text-shadow: 1px 1px 4px rgb(187, 187, 187);"> : Blackbox DOM XSS Scanner</td></tr>
+</tbody></table>
+<br />
+<fieldset>
+<legend> Database Settings </legend>
+<ul>
+<li>HOST &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="dbip" id="dbip" value="127.0.0.1"></li><br />
+<li>Username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="dbusername" id="dbusername" value="root"></li><br />
+<li>Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="dbpwd" id="dbpwd" value=""></li>
+</ul>
+</fieldset>
+<br />
+<fieldset>
+<legend> Fuzz Settings </legend>
+<ul>
+<li>Fuzz all parameters<input type="checkbox" name="chkbox1" id="chkbox1" value="all params" checked></li><br />
+<li>Aggressive Fuzz (Very Slow)<input type="checkbox" name="chkbox2" id="chkbox2" value="each char" checked></li>
+</ul>
+</fieldset>
+<br />
+<fieldset>
+<legend> Scan Settings </legend>
+<ul>
+<li>URLs file path:&nbsp;&nbsp;<input type="file" name="file1" id="file1"></li>
+</ul>
+</fieldset>
+<br />
+<div><input type="submit" name="sbmt" value="Save" onclick=" return savedata();">&nbsp;&nbsp;&nbsp;
+<input type="reset" name="cancel" value="Cancel"></div>
+
+</form></center>
+
+</body></html>
