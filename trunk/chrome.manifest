@@ -1,0 +1,5 @@
+content FFUTIL chrome/content/
+content FFUTIL chrome/content/ contentaccessible=yes
+overlay chrome://browser/content/browser.xul chrome://FFUTIL/content/ffutil.xul
+skin FFUTIL classic/1.0 chrome/skin/
+
