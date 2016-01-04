@@ -22,8 +22,8 @@ Ra.2 - Blackbox DOM-based XSS Scanner is our approach towards finding a solution
 ** Example:
 
 
-** `<a href="javascript:alert(/XSS/)>Click here</a>`
-** `<input type="button" value="Continue" onclick="javascript:alert(/XSS/) />`
+`<a href="javascript:alert(/XSS/)>Click here</a>`
+`<input type="button" value="Continue" onclick="javascript:alert(/XSS/) />`
 
 
 ** and similar situations.
