@@ -18,13 +18,13 @@ Ra.2 - Blackbox DOM-based XSS Scanner is our approach towards finding a solution
 
 **Pretty easy learning curve. Point-n-Click.**
 
-**Basic browser automation support: Simulates some of the browser events that require human interaction to trigger the XSS condition. 
-** Example:
+**Basic browser automation support: Simulates some of the browser events that require human interaction to trigger the XSS condition.**   
+**Example:**
 
 
 `<a href="javascript:alert(/XSS/)>Click here</a>`   
 `<input type="button" value="Continue" onclick="javascript:alert(/XSS/) />`   
-** and similar situations.
+**and similar situations.**
 
 **Centralized reporting: Suitable for enterprise standard multi-user environment.**
 
